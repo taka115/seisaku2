@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>掲示板スレッド</title>
+    <style>
+        p {
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 300px;
+            padding: 5px;
+        }
+
+        textarea {
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <h2>スレッドタイトル</h2>
+    <p>スレッドの説明がここに入ります。</p>
+
+    <hr>
+
+    <h3>コメントを投稿</h3>
+    <form action="/postComment" method="POST">
+        <div>
+            <p>名前:</p>
+            <input type="text" name="username">
+        </div>
+        <div>
+           <p>コメント</p>
+            <textarea name="comment"></textarea>
+        </div>
+        <div>
+            <button type="submit">投稿</button>
+        </div>
+    </form>
+
+    <hr>
+
+    <h3>コメント一覧</h3>
+
+</body>
+</html>

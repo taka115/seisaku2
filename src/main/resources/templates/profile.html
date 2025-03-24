@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロフィール編集</title>
+</head>
+<body>
+    <h2>プロフィール編集</h2>
+
+    <form action="/profile" method="post">
+        <div>
+            <label for="username">ユーザー名</label>
+            <input type="text" id="username" >
+        </div>
+
+        <div>
+            <label for="password">新しいパスワード</label>
+            <input type="password" id="password" name="password" >
+        </div>
+
+        <div>
+            <label for="passwordConfirm">パスワード確認</label>
+            <input type="password" id="passwordConfirm" name="passwordConfirm">
+        </div>
+
+        <div>
+            <button type="submit">プロフィール更新</button>
+        </div>
+    </form>
+</body>
+</html>

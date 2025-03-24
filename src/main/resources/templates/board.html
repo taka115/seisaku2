@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>掲示板一覧</title>
+    <style>
+        p {
+            margin-bottom: 5px;
+        }
+
+        input, textarea {
+            width: 300px;
+            padding: 5px;
+        }
+
+        textarea {
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>掲示板の作成</h2>
+    <form action="/createBoard" method="POST">
+        <div>
+            <p>掲示板名</p>
+            <input type="text" name="boardName" >
+        </div>
+
+        <div>
+            <p>説明</p>
+            <textarea name="description" ></textarea>
+        </div>
+
+        <div>
+            <button type="submit">作成</button>
+        </div>
+    </form>
+
+    <hr>
+
+    <h2>掲示板一覧</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>掲示板名</th>
+                <th>説明</th>
+                <th>入る</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 後でThymeleafで動的に表示 -->
+            <tr>
+                <td>1</td>
+                <td>サンプル掲示板</td>
+                <td>この掲示板はサンプルです</td>
+                <td>
+                    <form action="/board/1" method="GET">
+                        <button type="submit">入る</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
