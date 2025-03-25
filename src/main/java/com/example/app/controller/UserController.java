@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.app.domain.User;
 import com.example.app.service.UserService;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -17,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 	
 	private final UserService userService;
+	private final HttpSession session;
 	
 	@GetMapping("/register")
 	public String register() {
@@ -32,7 +34,35 @@ public class UserController {
 		user.setUsername(username);
 		user.setPassword(password);
 		userService.registerUser(user);
-		return "redirect:/login";
+		return "redirect:/user/login";
 	}
+	
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
+	
+	@PostMapping("/login")
+	public String login(
+			@RequestParam String username,
+			@RequestParam String password
+			) {
+		User user = userService.login(username, password);
+		
+		if(user != null) {
+			session.setAttribute("User", user);
+			return "redirect:/board";
+			
+		} else {
+			return"redirect:/login";
+		}
+	}
+	
+	@GetMapping("/logout")
+	public String logout() {
+		session.invalidate();
+		return "redirect:/user/login";
+	}
+	
 
 }

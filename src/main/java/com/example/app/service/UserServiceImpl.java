@@ -19,4 +19,15 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
+	@Override
+	public User login(String username, String password) {
+		User user = userMapper.findByUsername(username);
+		
+		 if(user != null || user.getPassword().equals(password)) {
+			 return user; // ログイン成功
+		 }
+		
+		return null; // ログイン成功
+	}
+
 }

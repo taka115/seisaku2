@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ログイン</title>
 </head>
 <body>
@@ -10,21 +9,21 @@
 <div class="">
     <h2>ログイン</h2>
 
-    <form action="/login" method="POST">
+    <form action="" method="POST">
         <div class="">
             <label for="username">ユーザー名</label>
-            <input type="text" id="username" name="username" >
+            <input type="text" name="username" >
         </div>
 
         <div class="">
             <label for="password">パスワード</label>
-            <input type="password" id="password" name="password" >
+            <input type="password" name="password" >
         </div>
 
         <button type="submit">ログイン</button>
 
         <div class="">
-            <p>アカウントをお持ちでない方？ <a href="register.html">登録ページへ</a></p>
+            <p>アカウントをお持ちでない方？ <a href="register">登録ページへ</a></p>
         </div>
     </form>
 </div>
