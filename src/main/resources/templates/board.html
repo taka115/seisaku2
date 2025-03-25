@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>掲示板一覧</title>
     <style>
         p {
@@ -22,15 +22,15 @@
 <body>
 
     <h2>掲示板の作成</h2>
-    <form action="/createBoard" method="POST">
+    <form action="/board/create" method="POST">
         <div>
             <p>掲示板名</p>
-            <input type="text" name="boardName" >
+            <input type="text" name="title" required>
         </div>
 
         <div>
             <p>説明</p>
-            <textarea name="description" ></textarea>
+            <textarea name="description" required></textarea>
         </div>
 
         <div>
@@ -52,12 +52,12 @@
         </thead>
         <tbody>
             <!-- 後でThymeleafで動的に表示 -->
-            <tr>
-                <td>1</td>
-                <td>サンプル掲示板</td>
-                <td>この掲示板はサンプルです</td>
+            <tr th:each="board : ${boards}">
+                <td th:text="${board.id}"></td>
+                <td th:text="${board.title}"></td>
+                <td th:text="${board.description}"></td>
                 <td>
-                    <form action="/board/1" method="GET">
+                    <form action="@{/board/{id}(id=${board.id})}" method="GET">
                         <button type="submit">入る</button>
                     </form>
                 </td>
@@ -67,3 +67,4 @@
 
 </body>
 </html>
+

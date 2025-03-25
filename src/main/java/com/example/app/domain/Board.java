@@ -5,11 +5,12 @@ import java.time.LocalDateTime;
 import lombok.Data;
 
 @Data
-public class Threads {
+public class Board {
 	
 	private int id;
+	private String title;
 	private String description;
-	private int userld;
+	private int userId;
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
 
