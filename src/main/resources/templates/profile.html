@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
     <title>プロフィール編集</title>
 </head>
 <body>
@@ -11,7 +12,7 @@
     <form action="/profile" method="post">
         <div>
             <label for="username">ユーザー名</label>
-            <input type="text" id="username" >
+            <input type="text" id="username" name="username">
         </div>
 
         <div>
