@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.app.mapper.CommentMapper">
+    
+    <select id="findByThreadId" parameterType="int" resultType="com.example.app.domain.Comment">
+        SELECT * FROM images WHERE thread_id = #{threadId} ORDER BY created_at ASC
+    </select>
+    
+</mapper>
