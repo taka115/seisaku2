@@ -12,4 +12,8 @@
         SELECT * FROM threads ORDER BY created_at ASC
     </select>
     
+    <select id="findById" parameterType="int" resultType="com.example.app.domain.Board">
+         SELECT * FROM threads WHERE id = #{id}
+    </select>
+    
 </mapper>

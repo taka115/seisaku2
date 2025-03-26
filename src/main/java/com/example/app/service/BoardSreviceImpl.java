@@ -25,4 +25,10 @@ public class BoardSreviceImpl implements BoardService {
 		return boardMapper.findAll();
 	}
 
+	@Override
+	public Board getIdBoard(int id) {
+		boardMapper.findById(id);
+		return null;
+	}
+
 }

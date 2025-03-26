@@ -10,5 +10,7 @@ public interface BoardService {
 	
 	List<Board> getAllBoards();
 	
+	Board getIdBoard(int id);
+		
 
 }

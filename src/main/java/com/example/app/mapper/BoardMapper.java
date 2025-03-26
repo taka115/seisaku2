@@ -12,5 +12,7 @@ public interface BoardMapper {
 	void insertBoard(Board board);
 	
 	List<Board> findAll();
+	
+	Board findById(int id);
 
 }
