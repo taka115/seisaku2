@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
     <title>掲示板スレッド</title>
     <style>
         p {
@@ -26,11 +26,8 @@
     <hr>
 
     <h3>コメントを投稿</h3>
-    <form action="/postComment" method="POST">
-        <div>
-            <p>名前:</p>
-            <input type="text" name="username">
-        </div>
+    <form action="" method="POST">
+		
         <div>
            <p>コメント</p>
             <textarea name="comment"></textarea>
