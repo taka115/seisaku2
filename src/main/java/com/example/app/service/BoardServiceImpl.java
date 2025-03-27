@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class BoardSreviceImpl implements BoardService {
+public class BoardServiceImpl implements BoardService {
 	
 	private final BoardMapper boardMapper;
 
@@ -27,8 +27,7 @@ public class BoardSreviceImpl implements BoardService {
 
 	@Override
 	public Board getIdBoard(int id) {
-		boardMapper.findById(id);
-		return null;
+		return boardMapper.findById(id);
 	}
 
 }

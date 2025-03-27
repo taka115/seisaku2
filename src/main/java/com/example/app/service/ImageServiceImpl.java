@@ -1,5 +1,7 @@
 package com.example.app.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.example.app.domain.Images;
@@ -14,7 +16,7 @@ public class ImageServiceImpl implements ImageService {
 	private final ImageMapper imageMapper;
 	
     @Override
-	public Images findByThreadId(int id) {
+	public List <Images> findByThreadId(int id) {
 		return imageMapper.findByThreadId(id);
 	}
 

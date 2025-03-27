@@ -57,9 +57,10 @@
                 <td th:text="${board.title}"></td>
                 <td th:text="${board.description}"></td>
                 <td>
-                    <form action="@{/board/{id}(id=${board.id})}" method="GET">
-                        <button type="submit">入る</button>
-                    </form>
+                    <a th:href="@{/board/{id}(id=${board.id})}">
+                         <button type="button">入る</button>
+                    </a>
+
                 </td>
             </tr>
         </tbody>

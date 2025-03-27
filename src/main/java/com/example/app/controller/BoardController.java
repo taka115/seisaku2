@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.app.domain.Board;
-import com.example.app.domain.Comments;
+import com.example.app.domain.Comment;
+import com.example.app.domain.Images;
 import com.example.app.domain.User;
 import com.example.app.service.BoardService;
 import com.example.app.service.CommentService;
@@ -55,14 +56,43 @@ public class BoardController {
 	
 	@GetMapping("/{id}")
 	public String thread(@PathVariable int id, Model model) {
+		 System.out.println("Received id: " + id);
 		Board board = boardService.getIdBoard(id);
 		
 		if(board == null) {
+			System.out.println("Board not found for id: " + id);
 			return "redirect:/board";
 		}
 		
 		// コメント一覧を取得
-		List<Comments> comments = commentService.findByThreadId(id);
+		List<Comment> comments = commentService.findByThreadId(id);
+		System.out.println("Comments: " + comments.size() + "件取得");
+		
+		// 画像一覧を取得
+		List<Images> images = imageService.findByThreadId(id);
+		System.out.println("Images: " + images.size() + "件取得");
+
+		// モデルにデータを追加
+		model.addAttribute("board", board);
+		model.addAttribute("comments", comments);
+		model.addAttribute("images", images);
+		
+		return "keijiban";
+	}
+	
+	@PostMapping("/comment")
+	public String comment (@RequestParam int threadId, 
+			@RequestParam String content) {
+		User user = (User) session.getAttribute("User");
+		if(user != null) {
+			Comment comment = new Comment();
+			comment.setThreadId(threadId);
+			comment.setUserId(user.getId());
+			comment.setContent(content);
+			commentService.insertCommemt(comment);
+		}
+		
+		return "redirect:/board/" + threadId;
 	}
 
 }
