@@ -13,6 +13,6 @@ public class Comment {
 	private int threadId;
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
-	
+	private User user;
 
 }
