@@ -1,8 +1,10 @@
 package com.example.app.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
-import com.example.app.domain.Comments;
+import com.example.app.domain.Comment;
 import com.example.app.mapper.CommentMapper;
 
 import lombok.RequiredArgsConstructor;
@@ -14,8 +16,15 @@ public class CommentServiceImple  implements CommentService{
 	private final CommentMapper commentMapper;
 
 	@Override
-	public Comments findByThreadId(int id) {
+	public List <Comment> findByThreadId(int id) {
 		return commentMapper.findByThreadId(id);
 	}
+
+	@Override
+	public void insertCommemt(Comment comment) {
+	    commentMapper.insertComment(comment);
+	}
+	
+	
 
 }

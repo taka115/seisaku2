@@ -1,9 +1,12 @@
 package com.example.app.service;
 
-import com.example.app.domain.Comments;
+import java.util.List;
+
+import com.example.app.domain.Comment;
 
 public interface CommentService {
 	
-	Comments findByThreadId(int id);
+	List <Comment> findByThreadId(int id);
+	void insertCommemt(Comment comment);
 
 }
